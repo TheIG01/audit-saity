@@ -3,311 +3,431 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Аудит сайта</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🔍%3C/text%3E%3C/svg%3E">
+<title>Glory Digital. Аудит сайтов</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='18' fill='none' stroke='%232f4cf5' stroke-width='2.5'/%3E%3Ctext x='20' y='28' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='23' fill='%232f4cf5'%3EG%3C/text%3E%3C/svg%3E">
 <style>
-:root{
-  color-scheme:light;
-  --bg:#f4f5f7;--surface:#fff;--ink:#16181d;--muted:#667085;--line:#e1e4ea;
-  --accent:#2f5bff;--accent-ink:#fff;--good:#0a8f5a;--mid:#c27803;--bad:#d1334a;
-  --font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    color-scheme:dark;
-    --bg:#101215;--surface:#181b20;--ink:#eceef2;--muted:#9aa3b2;--line:#2a2f37;
-    --accent:#6d8dff;--accent-ink:#0b1020;--good:#3ccf91;--mid:#f0b429;--bad:#ff6b81;
-  }
-}
-:root[data-theme="dark"]{
-  color-scheme:dark;
-  --bg:#101215;--surface:#181b20;--ink:#eceef2;--muted:#9aa3b2;--line:#2a2f37;
-  --accent:#6d8dff;--accent-ink:#0b1020;--good:#3ccf91;--mid:#f0b429;--bad:#ff6b81;
-}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 var(--font);
-  padding:env(safe-area-inset-top,0) env(safe-area-inset-right,0) env(safe-area-inset-bottom,0) env(safe-area-inset-left,0)}
-.wrap{max-width:1180px;margin:0 auto;padding:24px 16px 64px}
-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:32px}
-h1{font-size:20px;font-weight:650;margin:0;letter-spacing:-.01em}
-button,input{font:inherit;color:inherit}
-button{cursor:pointer}
-:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.ghost{background:none;border:1px solid var(--line);border-radius:8px;padding:6px 12px;color:var(--muted)}
-.ghost:hover{color:var(--ink)}
-h2{font-size:clamp(26px,5vw,40px);line-height:1.15;margin:0 0 8px;letter-spacing:-.02em;font-weight:700}
-.lead{color:var(--muted);margin:0 0 24px;max-width:56ch}
-form{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
-input[type=text]{flex:1 1 280px;min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
-input[type=text]::placeholder{color:var(--muted)}
-.primary{background:var(--accent);color:var(--accent-ink);border:0;border-radius:10px;padding:14px 24px;font-weight:600}
+:root{color-scheme:light;--bg:#f5f6fa;--s:#fff;--ink:#0e1220;--mu:#5d667a;--ln:#dfe3ee;--ac:#2f4cf5;--ai:#fff;--ok:#0b8f5b;--wn:#b87503;--bd:#d02b47;
+--sans:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;--serif:"Iowan Old Style","Palatino Linotype",Georgia,"Times New Roman",serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0b0d14;--s:#141824;--ink:#eceffa;--mu:#98a1b8;--ln:#262c3d;--ac:#7f95ff;--ai:#0b0d14;--ok:#3ccf91;--wn:#f0b429;--bd:#ff6b81}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0b0d14;--s:#141824;--ink:#eceffa;--mu:#98a1b8;--ln:#262c3d;--ac:#7f95ff;--ai:#0b0d14;--ok:#3ccf91;--wn:#f0b429;--bd:#ff6b81}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 var(--sans);padding:env(safe-area-inset-top,0) env(safe-area-inset-right,0) env(safe-area-inset-bottom,0) env(safe-area-inset-left,0)}
+.wrap{max-width:1180px;margin:0 auto;padding:20px 16px 80px}
+button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer}
+:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:36px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ac)}
+.brand b{font:700 19px var(--serif);color:var(--ink);letter-spacing:-.01em}
+.brand small{display:block;font-size:12px;color:var(--mu);font-weight:400;font-family:var(--sans)}
+.ghost{background:none;border:1px solid var(--ln);border-radius:8px;padding:6px 12px;color:var(--mu)}
+.ghost:hover{color:var(--ink);border-color:var(--mu)}
+h1{font:700 clamp(30px,6vw,52px)/1.08 var(--serif);letter-spacing:-.02em;margin:0 0 12px;max-width:16ch}
+.lead{color:var(--mu);margin:0 0 20px;max-width:52ch}
+.ruler{height:12px;margin:0 0 24px;opacity:.55;background:repeating-linear-gradient(90deg,var(--ac) 0 1.5px,transparent 1.5px 12px) 0 100%/100% 6px no-repeat,repeating-linear-gradient(90deg,var(--ac) 0 1.5px,transparent 1.5px 60px) 0 100%/100% 12px no-repeat}
+form{display:grid;gap:16px}
+textarea{width:100%;min-height:96px;resize:vertical;background:var(--s);border:1px solid var(--ln);border-radius:12px;padding:14px 16px}
+textarea::placeholder{color:var(--mu)}
+.panel{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));background:var(--s);border:1px solid var(--ln);border-radius:14px;padding:16px}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+legend{font-weight:600;font-size:14px;margin-bottom:8px;padding:0}
+.ticks{display:flex;gap:6px;flex-wrap:wrap}
+.ticks label,.pill{display:inline-flex;border:1px solid var(--ln);border-radius:8px;padding:6px 12px;font-size:14px;cursor:pointer;user-select:none}
+.ticks input{position:absolute;opacity:0;pointer-events:none}
+.ticks label:has(input:checked){background:var(--ac);border-color:var(--ac);color:var(--ai)}
+.ticks label:has(input:focus-visible){outline:2px solid var(--ac);outline-offset:2px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+select{background:var(--bg);border:1px solid var(--ln);border-radius:8px;padding:6px 8px}
+input[type=range]{accent-color:var(--ac);width:120px}
+.chk{display:flex;gap:8px;align-items:center;font-size:14px;margin:4px 0}
+.chk input{accent-color:var(--ac);width:16px;height:16px}
+.presets{display:flex;gap:8px;flex-wrap:wrap}
+.go{position:sticky;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:5;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.primary{background:var(--ac);color:var(--ai);border:0;border-radius:12px;padding:15px 28px;font-weight:650;box-shadow:0 6px 20px rgba(47,76,245,.25)}
 .primary:disabled{opacity:.55;cursor:progress}
-#status{min-height:24px;color:var(--muted);font-size:14px;margin:0 0 32px}
-#status.err{color:var(--bad)}
-section{margin-top:40px}
-section h3{font-size:18px;margin:0 0 4px}
-.sub{color:var(--muted);font-size:14px;margin:0 0 16px}
-.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;min-width:0}
-.card-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:12px}
-.card-head b{font-weight:600}
-.shot{height:520px;overflow:auto;border:1px solid var(--line);border-radius:8px;background:var(--bg);display:flex;align-items:flex-start;justify-content:center}
+#est,#usage,#status{font-size:13px;color:var(--mu);margin:0}
+#status{font-size:14px;min-height:22px;margin:16px 0 0}#status.err{color:var(--bd)}
+.site{margin-top:44px;border-top:2px solid var(--ac);padding-top:16px}
+.sh{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}
+.sh h3{font:700 26px var(--serif);margin:0;word-break:break-all}
+.sub{color:var(--mu);font-size:14px;margin:2px 0 0}
+section{margin-top:28px}section h4{font-size:17px;margin:0 0 12px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.card{background:var(--s);border:1px solid var(--ln);border-radius:12px;padding:14px;min-width:0}
+.ch{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}
+.dl{background:none;border:1px solid var(--ln);border-radius:8px;padding:4px 10px;font-size:13px}
+.dl:hover:not(:disabled){border-color:var(--ac);color:var(--ac)}.dl:disabled{opacity:.4;cursor:default}
+.shot{height:480px;overflow:auto;border:1px solid var(--ln);border-radius:8px;background:var(--bg);display:flex;align-items:flex-start;justify-content:center}
 .shot img{display:block;max-width:100%;height:auto}
-.ph{align-self:center;color:var(--muted);font-size:14px;padding:16px;text-align:center}
-.ph.err{color:var(--bad)}
-.dl{background:none;border:1px solid var(--line);border-radius:8px;padding:4px 10px;font-size:14px}
-.dl:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
-.dl:disabled{opacity:.4;cursor:default}
-.scores{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px}
-.score{text-align:center;border:1px solid var(--line);border-radius:10px;padding:12px 4px}
-.score .n{font-size:28px;font-weight:700;line-height:1.1}
-.score .l{font-size:12px;color:var(--muted)}
-.good{color:var(--good)}.mid{color:var(--mid)}.bad{color:var(--bad)}
-dl{margin:0;display:grid;grid-template-columns:1fr auto;gap:6px 12px;font-size:14px}
-dt{color:var(--muted)}dd{margin:0;font-weight:600;text-align:right}
-footer{margin-top:56px;color:var(--muted);font-size:13px;max-width:70ch}
-[hidden]{display:none!important}
-@media (max-width:520px){.scores{grid-template-columns:repeat(2,1fr)}.shot{height:420px}}
-@media print{header button,form,#status{display:none}.shot{height:auto;overflow:visible}body{background:#fff}}
+.ph{align-self:center;color:var(--mu);font-size:14px;padding:16px;text-align:center}.ph.err,.bd{color:var(--bd)}
+.scores{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
+.score{text-align:center;border:1px solid var(--ln);border-radius:10px;padding:10px 2px}
+.score .n{font:700 28px/1.1 var(--serif)}.score .l{font-size:12px;color:var(--mu)}
+.ok{color:var(--ok)}.wn{color:var(--wn)}
+dl{margin:0;display:grid;grid-template-columns:1fr auto;gap:6px 12px;font-size:14px}dt{color:var(--mu)}dd{margin:0;font-weight:600}
+.chk-list{display:grid;gap:0}
+.cr{display:grid;grid-template-columns:12px minmax(120px,240px) 1fr;gap:12px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--ln);font-size:14px}
+.cr i{width:10px;height:10px;border-radius:50%;background:currentColor;display:block}.cr span{color:var(--mu);word-break:break-word}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:16px}.chips span{border:1px solid var(--ln);border-radius:999px;padding:3px 10px;font-size:13px;background:var(--s)}
+.imgs{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));margin-top:12px}
+.im{border:1px solid var(--ln);border-radius:10px;overflow:hidden;background:var(--s);display:flex;flex-direction:column}
+.im div{aspect-ratio:1;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--mu)}
+.im img{width:100%;height:100%;object-fit:contain}.im button{border:0;border-top:1px solid var(--ln);background:none;padding:6px;font-size:13px}
+details{margin-top:32px}summary{cursor:pointer;color:var(--mu);font-size:14px}
+.hist{font-size:14px;margin-top:8px}.hist div{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px solid var(--ln)}
+footer{margin-top:56px;color:var(--mu);font-size:13px;max-width:70ch}
+.printhead{display:none}[hidden]{display:none!important}
+@media (max-width:700px){
+ .scores{grid-template-columns:repeat(2,1fr)}
+ .shots{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:8px}
+ .shots .card{flex:0 0 86%;scroll-snap-align:center}.shot{height:420px}
+ .go{background:linear-gradient(transparent,var(--bg) 40%);padding-top:12px}.primary{flex:1}
+ .cr{grid-template-columns:12px 1fr}.cr span{grid-column:2}
+}
+@media print{
+ body{background:#fff;color:#000}.top,form,#status,details,footer,.pr,.dl,.go{display:none!important}
+ body.pr .site:not(.on){display:none}.printhead{display:flex;align-items:center;gap:10px;color:#2f4cf5;font:700 20px Georgia,serif;margin-bottom:12px}
+ .shot{height:auto;overflow:visible}.shots{display:grid;grid-template-columns:repeat(3,1fr)}.card,.cr{break-inside:avoid}
+}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header>
-    <h1>Аудит сайта</h1>
-    <button class="ghost" id="theme" type="button" aria-label="Переключить тему">Тема</button>
-  </header>
+<header class="top">
+  <div class="brand">
+    <svg viewBox="0 0 40 40" width="36" height="36" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2.2"/><text x="20" y="28" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="23" fill="currentColor">G</text></svg>
+    <b>Glory Digital<small>Аудит сайтов</small></b>
+  </div>
+  <button class="ghost" id="theme" type="button">Тема</button>
+</header>
 
-  <h2>Скриншоты и скорость сайта</h2>
-  <p class="lead">Вставьте адрес сайта. Получите скриншоты на трёх ширинах экрана и оценки Lighthouse для телефона и компьютера.</p>
+<h1>Аудит сайта за один запуск</h1>
+<p class="lead">Скриншоты на нужных ширинах, скорость, SEO, аналитика, технологии и все картинки сайта. Можно вставить сразу несколько адресов.</p>
+<div class="ruler" aria-hidden="true"></div>
 
-  <form id="form">
-    <input type="text" id="url" inputmode="url" autocapitalize="off" autocomplete="off" spellcheck="false" placeholder="example.com" aria-label="Адрес сайта" required>
+<form id="form">
+  <textarea id="urls" placeholder="example.com&#10;второй-сайт.ru" aria-label="Адреса сайтов, по одному в строке" spellcheck="false" autocapitalize="off" required></textarea>
+  <div class="panel">
+    <fieldset>
+      <legend>Ширина экрана</legend>
+      <div class="ticks">
+        <label><input type="checkbox" name="w" value="375" checked><span>375</span></label>
+        <label><input type="checkbox" name="w" value="768" checked><span>768</span></label>
+        <label><input type="checkbox" name="w" value="1440" checked><span>1440</span></label>
+      </div>
+      <div class="presets" style="margin-top:10px">
+        <button class="ghost" type="button" data-p="m">Телефон и планшет</button>
+        <button class="ghost" type="button" data-p="a">Все ширины</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Скриншот</legend>
+      <div class="row">
+        <select id="fmt" aria-label="Формат"><option value="webp">WebP</option><option value="png">PNG</option><option value="jpeg">JPG</option></select>
+        <select id="sc" aria-label="Чёткость"><option value="1">Обычная</option><option value="2">Высокая (2x)</option><option value="3">Максимум (3x)</option></select>
+      </div>
+      <div class="row" style="margin-top:10px"><label for="q" style="font-size:14px">Качество</label><input type="range" id="q" min="50" max="100" value="90"><output id="qv" style="font-size:14px">90</output></div>
+    </fieldset>
+    <fieldset>
+      <legend>Что проверять</legend>
+      <label class="chk"><input type="checkbox" id="lhm" checked>Скорость на телефоне</label>
+      <label class="chk"><input type="checkbox" id="lhd" checked>Скорость на компьютере</label>
+      <label class="chk"><input type="checkbox" id="seo" checked>SEO, аналитика, технологии</label>
+      <label class="chk"><input type="checkbox" id="img" checked>Картинки сайта</label>
+      <label class="chk"><input type="checkbox" id="fresh">Свежие данные, без кэша</label>
+    </fieldset>
+  </div>
+  <div class="go">
     <button class="primary" id="go" type="submit">Проверить</button>
-  </form>
-  <p id="status" role="status" aria-live="polite"></p>
+    <p id="est"></p>
+  </div>
+</form>
+<p id="status" role="status" aria-live="polite"></p>
+<p id="usage"></p>
 
-  <section id="shots" hidden>
-    <h3>Скриншоты всей страницы</h3>
-    <p class="sub">Ширины 375, 768 и 1440 px. Это проверка по основным размерам экрана, а не по всем устройствам.</p>
-    <div class="grid" id="shotGrid"></div>
-  </section>
+<div id="results"></div>
 
-  <section id="lh" hidden>
-    <h3>Скорость и качество (Lighthouse)</h3>
-    <p class="sub">Оценки от 0 до 100. Зелёный от 90, жёлтый от 50.</p>
-    <div class="grid" id="lhGrid"></div>
-  </section>
-
-  <footer>Изображения чужих сайтов могут быть защищены авторским правом. Используйте их только для анализа.</footer>
+<details id="histBox"><summary>История проверок на этом устройстве</summary><div class="hist" id="hist"></div></details>
+<footer>Скриншоты проверяют основные ширины экрана, а не все устройства. Изображения чужих сайтов могут быть защищены авторским правом, используйте их только для анализа.</footer>
 </div>
 
 <script>
 (function () {
   "use strict";
-
-  // Адрес вашего Cloudflare Worker (со слэшем в конце)
   var API = "https://audit-proxy.maincraftrulit228666.workers.dev/";
-  var WIDTHS = [375, 768, 1440];
-  var DEVICES = [["mobile", "Телефон"], ["desktop", "Компьютер"]];
+  var EXT = { webp: "webp", png: "png", jpeg: "jpg" };
+  var $ = function (i) { return document.getElementById(i); };
+  var runId = 0, blobs = [], fatal = null;
 
-  var $ = function (id) { return document.getElementById(id); };
-  var form = $("form"), input = $("url"), go = $("go"), statusEl = $("status");
-  var runId = 0, blobUrls = [];
-
-  /* ---------- Тема ---------- */
-  var root = document.documentElement;
-  try { var saved = localStorage.getItem("theme"); if (saved) root.setAttribute("data-theme", saved); } catch (e) {}
-  $("theme").addEventListener("click", function () {
-    var dark = root.getAttribute("data-theme") === "dark" ||
-      (!root.getAttribute("data-theme") && matchMedia("(prefers-color-scheme: dark)").matches);
-    var next = dark ? "light" : "dark";
-    root.setAttribute("data-theme", next);
-    try { localStorage.setItem("theme", next); } catch (e) {}
-  });
-
-  /* ---------- Вспомогательное ---------- */
-  function setStatus(text, isErr) {
-    statusEl.textContent = text || "";
-    statusEl.className = isErr ? "err" : "";
-  }
-  function el(tag, cls, text) {
-    var n = document.createElement(tag);
-    if (cls) n.className = cls;
-    if (text != null) n.textContent = text;
-    return n;
-  }
+  function el(t, c, x) { var n = document.createElement(t); if (c) n.className = c; if (x != null) n.textContent = x; return n; }
   function sleep(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+  function status(t, err) { $("status").textContent = t || ""; $("status").className = err ? "err" : ""; }
+  function enc(s) { return encodeURIComponent(s); }
 
-  function normalize(raw) {
-    var v = raw.trim();
-    if (!v) return null;
-    if (!/^https?:\/\//i.test(v)) v = "https://" + v;
-    try {
-      var u = new URL(v);
-      if (!u.hostname.includes(".")) return null;
-      return u.href;
-    } catch (e) { return null; }
+  /* Тема */
+  var root = document.documentElement;
+  try { var sv = localStorage.getItem("gd_theme"); if (sv) root.setAttribute("data-theme", sv); } catch (e) {}
+  $("theme").onclick = function () {
+    var cur = root.getAttribute("data-theme");
+    var dark = cur === "dark" || (!cur && matchMedia("(prefers-color-scheme: dark)").matches);
+    var n = dark ? "light" : "dark"; root.setAttribute("data-theme", n);
+    try { localStorage.setItem("gd_theme", n); } catch (e) {}
+  };
+
+  /* Настройки */
+  function opts() {
+    return {
+      w: [].slice.call(document.querySelectorAll("input[name=w]:checked")).map(function (i) { return +i.value; }),
+      fmt: $("fmt").value, q: $("q").value, sc: $("sc").value,
+      lhm: $("lhm").checked, lhd: $("lhd").checked, seo: $("seo").checked, img: $("img").checked, fresh: $("fresh").checked
+    };
   }
+  function normalize(raw) {
+    var v = raw.trim(); if (!v) return null;
+    if (!/^https?:\/\//i.test(v)) v = "https://" + v;
+    try { var u = new URL(v); return u.hostname.indexOf(".") > 0 ? u.href : null; } catch (e) { return null; }
+  }
+  function urlsFrom(t) {
+    var out = [];
+    t.split(/[\s,;]+/).forEach(function (s) { var n = normalize(s); if (n && out.indexOf(n) < 0) out.push(n); });
+    return out.slice(0, 20);
+  }
+  function estimate() {
+    var o = opts(), n = urlsFrom($("urls").value).length || 1;
+    var req = o.w.length + (o.lhm ? 1 : 0) + (o.lhd ? 1 : 0) + (o.seo ? 3 : (o.img ? 1 : 0));
+    var cr = (o.lhm ? 2 : 0) + (o.lhd ? 2 : 0) + (o.seo ? 3 : (o.img ? 1 : 0));
+    $("est").textContent = "Запросов: " + req * n + ". Кредитов: " + cr * n + (o.w.length ? " плюс " + o.w.length * n + " скриншот(ов)" : "") + ". Повторы из кэша кредиты не тратят.";
+  }
+  $("q").oninput = function () { $("qv").textContent = this.value; };
+  $("fmt").onchange = function () { $("q").disabled = this.value === "png"; };
+  $("form").addEventListener("input", estimate); $("form").addEventListener("change", estimate);
+  [].forEach.call(document.querySelectorAll("[data-p]"), function (b) {
+    b.onclick = function () {
+      [].forEach.call(document.querySelectorAll("input[name=w]"), function (i) { i.checked = b.dataset.p === "a" || i.value !== "1440"; });
+      estimate();
+    };
+  });
+  estimate();
 
-  // Запрос к прокси. На бесплатном тарифе URLpipe работает один запрос за раз,
-  // поэтому все запросы идут по очереди, а при перегрузке делаем паузу и повтор.
-  async function callApi(params, wantBlob) {
-    var query = new URLSearchParams(params).toString();
-    var lastMsg = "Неизвестная ошибка";
-    for (var attempt = 0; attempt < 3; attempt++) {
+  /* Запросы к прокси. Бесплатный тариф URLpipe держит один запрос за раз, поэтому всё идёт по очереди */
+  function noteUsage(o) {
+    var out = [];
+    for (var k in o) if (/credit|allowance|remain|cost/.test(k)) out.push(k.replace(/^x-/, "") + ": " + o[k]);
+    if (out.length) $("usage").textContent = out.join("   ");
+  }
+  async function call(params, kind) {
+    var q = new URLSearchParams(params).toString(), msg = "Ошибка";
+    for (var i = 0; i < 3; i++) {
       var res;
-      try {
-        res = await fetch(API + "?" + query);
-      } catch (e) {
-        throw new Error("Нет связи с прокси. Проверьте интернет и адрес Worker.");
-      }
-      if (res.ok) return wantBlob ? res.blob() : res.json();
-
-      var data = null;
-      try { data = await res.json(); } catch (e) {}
-      lastMsg = (data && (data.message || data.error)) || ("Ошибка " + res.status);
-
-      if (res.status === 429 && data && data.error === "quota_exceeded") {
-        throw new Error("Бесплатные кредиты URLpipe закончились до конца месяца.");
-      }
-      if (res.status === 429 || res.status === 504) { await sleep(4000 * (attempt + 1)); continue; }
-      if (res.status === 401) throw new Error("Ключ URLpipe не принят. Проверьте секрет URLPIPE_KEY в Cloudflare.");
+      try { res = await fetch(API + "?" + q); } catch (e) { fatal = "Нет связи с прокси"; throw new Error(fatal); }
+      try { noteUsage(JSON.parse(decodeURIComponent(res.headers.get("X-Up") || "%7B%7D"))); } catch (e) {}
+      if (res.ok) return kind === "blob" ? res.blob() : res.json();
+      var d = null; try { d = await res.json(); } catch (e) {}
+      msg = (d && (d.message || d.error)) || ("Ошибка " + res.status);
+      if (res.status === 429 && d && d.error === "quota_exceeded") { fatal = "Кредиты URLpipe закончились. Лимит обновится в начале месяца или нужен платный тариф."; throw new Error(fatal); }
+      if (res.status === 401) { fatal = "Ключ URLpipe не принят. Проверьте секрет URLPIPE_KEY в Cloudflare."; throw new Error(fatal); }
+      if (res.status === 429 || res.status === 504) { await sleep(d && d.retry_after ? d.retry_after * 1000 : 4000 * (i + 1)); continue; }
       break;
     }
-    throw new Error(lastMsg);
+    throw new Error(msg);
   }
-
-  function download(blobUrl, name) {
-    var a = document.createElement("a");
-    a.href = blobUrl; a.download = name;
-    document.body.appendChild(a); a.click(); a.remove();
+  function save(url, name) { var a = document.createElement("a"); a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove(); }
+  function fetchImg(u, ref) {
+    return fetch(API + "?action=img&src=" + enc(u) + "&ref=" + enc(ref)).then(function (r) { if (!r.ok) throw new Error("x"); return r.blob(); });
   }
+  function loadZip() {
+    return new Promise(function (ok, no) {
+      if (window.JSZip) return ok();
+      var s = document.createElement("script"); s.src = "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js";
+      s.onload = ok; s.onerror = function () { no(new Error("zip")); }; document.head.appendChild(s);
+    });
+  }
+  function scoreCls(n) { return n >= 90 ? "ok" : n >= 50 ? "wn" : "bd"; }
 
-  function scoreClass(s) { return s >= 90 ? "good" : s >= 50 ? "mid" : "bad"; }
+  /* Блоки интерфейса */
+  function section(art, title, sub) {
+    var s = el("section"); s.appendChild(el("h4", "", title));
+    if (sub) s.appendChild(el("p", "sub", sub));
+    var b = el("div"); s.appendChild(b); art.appendChild(s); return b;
+  }
+  function placeholder(box, t) { box.textContent = ""; box.appendChild(el("div", "ph", t)); return box.firstChild; }
 
-  /* ---------- Интерфейс карточек ---------- */
-  function buildShotCard(width, host) {
-    var card = el("div", "card");
-    var head = el("div", "card-head");
-    head.appendChild(el("b", "", width + " px"));
-    var btn = el("button", "dl", "Скачать");
-    btn.type = "button"; btn.disabled = true;
-    head.appendChild(btn);
-    var box = el("div", "shot");
-    var ph = el("div", "ph", "Ждёт очереди…");
-    box.appendChild(ph);
+  function shotCard(w, host, o) {
+    var card = el("div", "card"), head = el("div", "ch"); head.appendChild(el("b", "", w + " px"));
+    var btn = el("button", "dl", "Скачать"); btn.type = "button"; btn.disabled = true; head.appendChild(btn);
+    var box = el("div", "shot"), ph = el("div", "ph", "Ждёт очереди…"); box.appendChild(ph);
     card.appendChild(head); card.appendChild(box);
-    return {
-      card: card,
-      loading: function () { ph.textContent = "Делаем скриншот…"; },
-      fail: function (msg) { ph.textContent = msg; ph.className = "ph err"; },
+    return { card: card, load: function () { ph.textContent = "Делаем скриншот…"; }, fail: function (m) { ph.textContent = m; ph.className = "ph err"; },
       done: function (blob) {
-        var u = URL.createObjectURL(blob); blobUrls.push(u);
-        var img = new Image();
-        img.alt = "Скриншот сайта, ширина " + width + " px";
-        img.src = u;
-        box.textContent = ""; box.appendChild(img);
-        btn.disabled = false;
-        btn.onclick = function () { download(u, host + "-" + width + ".webp"); };
-      }
-    };
+        var u = URL.createObjectURL(blob); blobs.push(u);
+        var img = new Image(); img.alt = "Скриншот, ширина " + w + " px"; img.src = u; box.textContent = ""; box.appendChild(img);
+        btn.disabled = false; btn.onclick = function () { save(u, host + "-" + w + "." + EXT[o.fmt]); };
+      } };
   }
 
-  function buildLhCard(label) {
-    var card = el("div", "card");
-    var head = el("div", "card-head");
-    head.appendChild(el("b", "", label));
-    card.appendChild(head);
-    var body = el("div", "ph", "Ждёт очереди…");
-    card.appendChild(body);
-    return {
-      card: card,
-      loading: function () { body.textContent = "Идёт проверка, до 30 секунд…"; },
-      fail: function (msg) { body.textContent = msg; body.className = "ph err"; },
+  function lhCard(label) {
+    var card = el("div", "card"), head = el("div", "ch"); head.appendChild(el("b", "", label)); card.appendChild(head);
+    var ph = el("div", "ph", "Ждёт очереди…"); card.appendChild(ph);
+    return { card: card, load: function () { ph.textContent = "Идёт проверка, до 30 секунд…"; }, fail: function (m) { ph.textContent = m; ph.className = "ph err"; },
       done: function (d) {
-        body.remove();
-        var cats = d.categories || {};
-        var names = [["performance", "Скорость"], ["accessibility", "Доступность"],
-                     ["best-practices", "Практики"], ["seo", "SEO"]];
-        var scores = el("div", "scores");
-        names.forEach(function (p) {
-          var c = cats[p[0]];
-          var box = el("div", "score");
-          if (c && typeof c.score === "number") {
-            var n = Math.round(c.score * 100);
-            box.appendChild(el("div", "n " + scoreClass(n), String(n)));
-          } else { box.appendChild(el("div", "n", "—")); }
-          box.appendChild(el("div", "l", p[1]));
-          scores.appendChild(box);
+        ph.remove(); var c = d.categories || {}, sc = el("div", "scores");
+        [["performance", "Скорость"], ["accessibility", "Доступность"], ["best-practices", "Практики"], ["seo", "SEO"]].forEach(function (p) {
+          var b = el("div", "score"), v = c[p[0]];
+          if (v && typeof v.score === "number") { var n = Math.round(v.score * 100); b.appendChild(el("div", "n " + scoreCls(n), String(n))); } else b.appendChild(el("div", "n", "—"));
+          b.appendChild(el("div", "l", p[1])); sc.appendChild(b);
         });
-        card.appendChild(scores);
-
-        var m = d.metrics || {};
-        var rows = [["first-contentful-paint", "Первый контент (FCP)"],
-                    ["largest-contentful-paint", "Главный контент (LCP)"],
-                    ["cumulative-layout-shift", "Сдвиг макета (CLS)"],
-                    ["total-blocking-time", "Блокировка (TBT)"],
-                    ["speed-index", "Индекс скорости"]];
-        var dl = el("dl");
-        rows.forEach(function (r) {
-          if (m[r[0]] && m[r[0]].displayValue != null) {
-            dl.appendChild(el("dt", "", r[1]));
-            dl.appendChild(el("dd", "", m[r[0]].displayValue));
-          }
+        card.appendChild(sc);
+        var m = d.metrics || {}, dl = el("dl");
+        [["first-contentful-paint", "Первый контент (FCP)"], ["largest-contentful-paint", "Главный контент (LCP)"], ["cumulative-layout-shift", "Сдвиг макета (CLS)"], ["total-blocking-time", "Блокировка (TBT)"], ["speed-index", "Индекс скорости"]].forEach(function (r) {
+          if (m[r[0]] && m[r[0]].displayValue != null) { dl.appendChild(el("dt", "", r[1])); dl.appendChild(el("dd", "", m[r[0]].displayValue)); }
         });
         card.appendChild(dl);
-      }
-    };
+      } };
   }
 
-  /* ---------- Основной запуск ---------- */
-  form.addEventListener("submit", async function (ev) {
-    ev.preventDefault();
-    var target = normalize(input.value);
-    if (!target) { setStatus("Введите адрес сайта, например example.com", true); return; }
+  function renderSeo(box, D) {
+    box.textContent = ""; var list = el("div", "chk-list");
+    function add(s, l, d) { var r = el("div", "cr " + s); r.appendChild(el("i")); var b = el("b", "", l); b.style.color = "var(--ink)"; r.appendChild(b); r.appendChild(el("span", "", d)); list.appendChild(r); }
+    var m = D.meta, h = D.html, t = D.tech;
+    if (m) {
+      var ti = m.title || "", de = m.description || "", og = m.open_graph || {};
+      add(!ti ? "bd" : (ti.length < 10 || ti.length > 70 ? "wn" : "ok"), "Заголовок (title)", ti ? ti.length + " симв. " + ti : "Не найден");
+      add(!de ? "bd" : (de.length < 50 || de.length > 170 ? "wn" : "ok"), "Описание (description)", de ? de.length + " симв. " + de : "Не найдено");
+      add(m.canonical_url ? "ok" : "wn", "Canonical", m.canonical_url || "Не задан");
+      add(og.title && og.image ? "ok" : "wn", "Превью ссылки (Open Graph)", og.title && og.image ? "Есть заголовок и картинка" : "Нет заголовка или картинки, ссылка в мессенджере будет выглядеть бедно");
+      add(m.robots && m.robots.index === false ? "bd" : "ok", "Индексация", m.robots && m.robots.index === false ? "Закрыта от поисковиков (noindex)" : "Открыта");
+      add(m.language ? "ok" : "wn", "Язык страницы", m.language || "Не указан");
+    } else add("wn", "Метаданные", "Не удалось получить: " + (D.err.meta || ""));
+    if (h) {
+      add(h.h1 === 1 ? "ok" : (h.h1 === 0 ? "bd" : "wn"), "Заголовок H1", h.h1 === 1 ? "Один, как и нужно" : (h.h1 === 0 ? "Не найден" : "Найдено " + h.h1 + ", лучше один"));
+      add(h.noAlt === 0 ? "ok" : "wn", "Картинки без alt", h.noAlt + " из " + h.total);
+      add(h.forms > 0 ? "ok" : "wn", "Форма заявки", h.forms > 0 ? "Найдено форм: " + h.forms : "Не найдена в коде страницы");
+      add(h.tel ? "ok" : "wn", "Телефон-ссылка (tel:)", h.tel ? "Есть" : "Нет, с телефона нельзя позвонить в один тап");
+      add(h.policy ? "ok" : "wn", "Политика конфиденциальности", h.policy ? "Упоминается на странице" : "Не найдена");
+    }
+    if (t) {
+      var an = (t.technologies || []).filter(function (x) { return (x.categories || []).some(function (c) { return /analytics|tag-managers|advertising/.test(c.slug); }); });
+      add(an.length ? "ok" : "bd", "Аналитика и теги", an.length ? an.map(function (x) { return x.name; }).join(", ") : "Не найдена, непонятно, откуда приходят заявки");
+    }
+    box.appendChild(list);
+    if (t && t.technologies && t.technologies.length) {
+      var chips = el("div", "chips");
+      t.technologies.slice(0, 24).forEach(function (x) { chips.appendChild(el("span", "", x.name + (x.version ? " " + x.version : ""))); });
+      box.appendChild(chips);
+    }
+  }
 
-    var my = ++runId;
-    blobUrls.forEach(function (u) { URL.revokeObjectURL(u); });
-    blobUrls = [];
-    go.disabled = true;
-    var host = new URL(target).hostname.replace(/^www\./, "");
+  function renderImages(box, h, host, site) {
+    box.textContent = ""; var list = h.images || [];
+    if (!list.length) { placeholder(box, "Картинки не найдены"); return; }
+    var zip = el("button", "dl", "Скачать все (" + list.length + ") в ZIP"); zip.type = "button"; box.appendChild(zip);
+    zip.onclick = async function () {
+      zip.disabled = true;
+      try {
+        await loadZip(); var z = new JSZip(), i = 0, done = 0, bad = 0;
+        var worker = async function () {
+          while (i < list.length) {
+            var k = i++;
+            try {
+              var b = await fetchImg(list[k].url, site), base = "image";
+              try { base = decodeURIComponent(new URL(list[k].url).pathname.split("/").pop()) || base; } catch (e) {}
+              base = base.replace(/[^\w.\-]+/g, "_");
+              if (!/\.\w{2,5}$/.test(base)) base += "." + (b.type.split("/")[1] || "bin").replace("svg+xml", "svg").replace("jpeg", "jpg");
+              z.file(("00" + (k + 1)).slice(-3) + "-" + base, b);
+            } catch (e) { bad++; }
+            done++; zip.textContent = "Скачиваем " + done + " из " + list.length;
+          }
+        };
+        await Promise.all([worker(), worker(), worker(), worker()]);
+        var blob = await z.generateAsync({ type: "blob" }), u = URL.createObjectURL(blob);
+        save(u, host + "-images.zip"); setTimeout(function () { URL.revokeObjectURL(u); }, 5000);
+        zip.textContent = "Готово" + (bad ? ", не скачано: " + bad : "") + ". Скачать снова";
+      } catch (e) { zip.textContent = "Не удалось. Повторить"; }
+      zip.disabled = false;
+    };
+    var g = el("div", "imgs");
+    list.forEach(function (it, k) {
+      var c = el("div", "im"), p = el("div"), im = new Image();
+      im.loading = "lazy"; im.referrerPolicy = "no-referrer"; im.alt = it.alt || ""; im.src = it.url;
+      im.onerror = function () { p.textContent = "Нет превью"; };
+      p.appendChild(im); c.appendChild(p);
+      var b = el("button", "", "Скачать"); b.type = "button";
+      b.onclick = function () {
+        b.textContent = "…";
+        fetchImg(it.url, site).then(function (bl) {
+          var u = URL.createObjectURL(bl), n = decodeURIComponent(it.url.split("?")[0].split("/").pop() || "image-" + (k + 1)).replace(/[^\w.\-]+/g, "_");
+          if (!/\.\w{2,5}$/.test(n)) n += "." + (bl.type.split("/")[1] || "bin").replace("svg+xml", "svg").replace("jpeg", "jpg");
+          save(u, n); setTimeout(function () { URL.revokeObjectURL(u); }, 5000); b.textContent = "Скачать";
+        }).catch(function () { b.textContent = "Ошибка"; });
+      };
+      c.appendChild(b); g.appendChild(c);
+    });
+    box.appendChild(g);
+  }
 
-    var shotGrid = $("shotGrid"), lhGrid = $("lhGrid");
-    shotGrid.textContent = ""; lhGrid.textContent = "";
-    $("shots").hidden = false; $("lh").hidden = false;
+  /* История */
+  function hist(add) {
+    var h = []; try { h = JSON.parse(localStorage.getItem("gd_hist") || "[]"); } catch (e) {}
+    if (add) { h.unshift(add); h = h.slice(0, 40); try { localStorage.setItem("gd_hist", JSON.stringify(h)); } catch (e) {} }
+    var box = $("hist"); box.textContent = "";
+    if (!h.length) { box.textContent = "Пока пусто"; return; }
+    h.forEach(function (x) {
+      var r = el("div"); r.appendChild(el("span", "", x.h + ", " + new Date(x.t).toLocaleDateString("ru-RU")));
+      r.appendChild(el("span", "", "Телефон " + (x.pm == null ? "—" : x.pm) + ", компьютер " + (x.pd == null ? "—" : x.pd)));
+      box.appendChild(r);
+    });
+  }
+  hist();
 
-    var shotCards = WIDTHS.map(function (w) { var c = buildShotCard(w, host); shotGrid.appendChild(c.card); return c; });
-    var lhCards = DEVICES.map(function (d) { var c = buildLhCard(d[1]); lhGrid.appendChild(c.card); return c; });
+  /* Аудит одного сайта */
+  async function audit(target, o, my) {
+    var host = new URL(target).hostname.replace(/^www\./, ""), art = el("article", "site");
+    var ph = el("div", "printhead"); ph.innerHTML = '<svg viewBox="0 0 40 40" width="30" height="30"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2.2"/><text x="20" y="28" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="23" fill="currentColor">G</text></svg>'; ph.appendChild(document.createTextNode("Glory Digital. Аудит сайта"));
+    art.appendChild(ph);
+    var sh = el("header", "sh"), hd = el("div"); hd.appendChild(el("h3", "", host)); var sub = el("p", "sub", new Date().toLocaleDateString("ru-RU")); hd.appendChild(sub);
+    var pb = el("button", "ghost pr", "Печать / PDF"); pb.type = "button";
+    pb.onclick = function () { art.classList.add("on"); document.body.classList.add("pr"); window.print(); setTimeout(function () { art.classList.remove("on"); document.body.classList.remove("pr"); }, 500); };
+    sh.appendChild(hd); sh.appendChild(pb); art.appendChild(sh); $("results").appendChild(art);
 
-    var tasks = [];
-    WIDTHS.forEach(function (w, i) { tasks.push({ kind: "shot", w: w, ui: shotCards[i], name: "скриншот " + w + " px" }); });
-    DEVICES.forEach(function (d, i) { tasks.push({ kind: "lh", d: d[0], ui: lhCards[i], name: "Lighthouse (" + d[1].toLowerCase() + ")" }); });
+    var D = { err: {} }, tasks = [], lh = {}, shots = null, lhBox = null, seoBox = null, imgBox = null;
+    var fr = o.fresh ? "1" : "0";
+    if (o.w.length) { shots = el("div", "grid shots"); var sb = section(art, "Скриншоты всей страницы", "Ширины: " + o.w.join(", ") + " px"); sb.appendChild(shots);
+      o.w.forEach(function (w) { var c = shotCard(w, host, o); shots.appendChild(c.card);
+        tasks.push({ n: "скриншот " + w + " px", ui: c, run: function () { return call({ action: "screenshot", url: target, width: w, format: o.fmt, quality: o.q, scale: o.sc, fresh: fr }, "blob").then(c.done); } }); }); }
+    if (o.lhm || o.lhd) { var lb = section(art, "Скорость и качество (Lighthouse)", "Оценки от 0 до 100. Зелёный от 90, жёлтый от 50."); lhBox = el("div", "grid"); lb.appendChild(lhBox);
+      [["mobile", "Телефон", o.lhm], ["desktop", "Компьютер", o.lhd]].forEach(function (d) { if (!d[2]) return; var c = lhCard(d[1]); lhBox.appendChild(c.card);
+        tasks.push({ n: "скорость (" + d[1].toLowerCase() + ")", ui: c, run: function () { return call({ action: "lighthouse", url: target, device: d[0], fresh: fr }, "json").then(function (r) { lh[d[0]] = r; c.done(r); }); } }); }); }
+    if (o.seo) { seoBox = section(art, "SEO, аналитика и технологии"); placeholder(seoBox, "Ждёт очереди…");
+      tasks.push({ n: "метаданные", key: "meta", run: function () { return call({ action: "meta", url: target, fresh: fr }, "json").then(function (r) { D.meta = r; }); } });
+      tasks.push({ n: "технологии", key: "tech", run: function () { return call({ action: "technologies", url: target, fresh: fr }, "json").then(function (r) { D.tech = r; }); } }); }
+    if (o.seo || o.img) { if (o.img) { imgBox = section(art, "Картинки сайта", "Найдены в коде страницы, включая ленивую загрузку и фоны."); placeholder(imgBox, "Ждёт очереди…"); }
+      tasks.push({ n: "код страницы", key: "html", run: function () { return call({ action: "html", url: target, fresh: fr }, "json").then(function (r) { D.html = r; }); } }); }
 
-    var failed = 0, fatal = null;
     for (var i = 0; i < tasks.length; i++) {
       if (my !== runId) return;
       var t = tasks[i];
-      if (fatal) { t.ui.fail(fatal); failed++; continue; }
-      setStatus("Шаг " + (i + 1) + " из " + tasks.length + ": " + t.name + "…");
-      t.ui.loading();
-      try {
-        if (t.kind === "shot") {
-          t.ui.done(await callApi({ action: "screenshot", url: target, width: t.w }, true));
-        } else {
-          t.ui.done(await callApi({ action: "lighthouse", url: target, device: t.d }, false));
-        }
-      } catch (e) {
-        failed++; t.ui.fail(e.message);
-        if (/кредиты|Ключ|Нет связи/.test(e.message)) fatal = e.message;
-      }
+      if (fatal) { if (t.ui) t.ui.fail(fatal); else D.err[t.key] = fatal; continue; }
+      status(host + ": " + t.n + " (" + (i + 1) + " из " + tasks.length + ")…");
+      if (t.ui) t.ui.load();
+      try { await t.run(); } catch (e) { if (t.ui) t.ui.fail(e.message); else D.err[t.key] = e.message; }
     }
+    if (seoBox) renderSeo(seoBox, D);
+    if (imgBox) { if (D.html) renderImages(imgBox, D.html, host, target); else placeholder(imgBox, "Не удалось получить: " + (D.err.html || "")).className = "ph err"; }
+    var pm = lh.mobile && lh.mobile.categories && lh.mobile.categories.performance ? Math.round(lh.mobile.categories.performance.score * 100) : null;
+    var pd = lh.desktop && lh.desktop.categories && lh.desktop.categories.performance ? Math.round(lh.desktop.categories.performance.score * 100) : null;
+    if (pm != null || pd != null) { sub.textContent += ". Скорость: телефон " + (pm == null ? "—" : pm) + ", компьютер " + (pd == null ? "—" : pd); hist({ t: Date.now(), h: host, pm: pm, pd: pd }); }
+  }
+
+  $("form").addEventListener("submit", async function (ev) {
+    ev.preventDefault();
+    var list = urlsFrom($("urls").value), o = opts();
+    if (!list.length) { status("Введите адрес сайта, например example.com", true); return; }
+    if (!o.w.length && !o.lhm && !o.lhd && !o.seo && !o.img) { status("Выберите хотя бы одну проверку", true); return; }
+    var my = ++runId; fatal = null; blobs.forEach(function (u) { URL.revokeObjectURL(u); }); blobs = [];
+    $("results").textContent = ""; $("go").disabled = true;
+    for (var i = 0; i < list.length; i++) { if (my !== runId) return; await audit(list[i], o, my); }
     if (my !== runId) return;
-    go.disabled = false;
-    if (failed === tasks.length) setStatus("Не удалось выполнить проверку. Причина указана в карточках.", true);
-    else if (failed) setStatus("Готово, но часть проверок не выполнена (" + failed + " из " + tasks.length + ").", true);
-    else setStatus("Готово. Всё проверено.");
+    $("go").disabled = false;
+    status(fatal ? fatal : "Готово. Проверено сайтов: " + list.length + ".", !!fatal);
   });
 })();
 </script>
